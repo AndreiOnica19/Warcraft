@@ -1,6 +1,7 @@
 package player;
 
 import colours.Colours;
+import utils.Utils;
 
 import java.util.Random;
 
@@ -28,7 +29,7 @@ public class Player {
                 '}';
     }
 
-    public void fight(Player enemy) throws InterruptedException {
+    public void fight(Player enemy) {
         Random random = new Random();
         int villainVictory = 0;
         int heroVictory = 0;
@@ -57,7 +58,7 @@ public class Player {
                         " dealing " + Colours.YELLOW_BRIGHT + enemy.damage + Colours.RESET + " damage."
                         + Colours.BLUE + this.name + Colours.RESET + " has " + this.health + " remaining health.");
             }
-            Thread.sleep(500);
+            Utils.waitInSeconds(0.5);
         }
         if (heroVictory > villainVictory) {
             System.out.println(Colours.BLUE + "Heroes have won!");
